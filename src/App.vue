@@ -54,11 +54,9 @@ export default {
       return data
     },
     displayNote(subject){
-    console.log("TEST");
     this.selectSubject = subject;
     },
     displayClient(client){
-      // console.log(client);
       this.name = client.name;
       this.birthday = client.dob;
       this.ssn = client.ssn;
@@ -71,7 +69,6 @@ export default {
   async created(){
       this.clients = await this.fetchclients();
       if(this.clients.length > 0){
-        console.log("tes test test");
         this.name = this.clients[0].name;
         this.ssn = this.clients[0].ssn;
         this.status = this.clients[0].status;

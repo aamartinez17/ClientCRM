@@ -30,7 +30,6 @@
         methods: {
             showNote(subject) {
                 this.$emit('show-note', subject);
-                console.log(subject);
             }
         }
     }   

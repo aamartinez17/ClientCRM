@@ -24,6 +24,7 @@ import ClientList from './components/ClientList.vue'
 import SubjectList from './components/SubjectList.vue'
 import ClientNotes from './components/ClientNotes.vue'
 import MyFooter from './components/MyFooter.vue'
+import axios from 'axios'
 
 export default {
   name: 'App',
@@ -48,10 +49,12 @@ export default {
   },
   methods:{
   async fetchclients(){
-      const res = await fetch('https://aamartinez17.github.io/ClientCRM/api/db.json');
-      const data = await res.json()
-      console.log(data)
-      return data
+      // const res = await fetch('http://localhost:5555/clients');
+      const res = await axios.get('https://aamartinez17.github.io/ClientCRM/api/db.json')
+      // const data = res.json();
+      const data = await res.data.clients;
+      console.log(data);
+      return data;
     },
     displayNote(subject){
     this.selectSubject = subject;

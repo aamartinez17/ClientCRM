@@ -48,7 +48,7 @@ export default {
   },
   methods:{
   async fetchclients(){
-      const res = await fetch('http://localhost:5555/clients ');
+      const res = await fetch('https://github.com/aamartinez17/ClientCRM/blob/44ad0961425e892c19af872f78580669fec687f3/db.json ');
       const data = await res.json()
       console.log(data)
       return data

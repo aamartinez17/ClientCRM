@@ -8,9 +8,9 @@
   :dependants = "dependants"/>
   <main>
     <aside>
-      <ClientList :clients=clients @show-client="displayClient" />
+      <ClientList :clients=clients @show-client="displayClient" :activeClient="activeClient" />
       <SubjectList :clients=clients
-       :name="name" @show-note="displayNote" />
+       :name="name" @show-note="displayNote" :activeSubject="activeSubject"/>
     </aside>
     <ClientNotes :subject="selectSubject" />
   </main>
@@ -44,7 +44,9 @@ export default {
       ssn: "",
       status: "",
       dependants: null,
-      pictureURL: "./assets/blank-photo-icon.jpg"
+      pictureURL: "./assets/blank-photo-icon.jpg",
+      activeClient: "",
+      activeSubject: ""
     }
   },
   methods:{
@@ -58,6 +60,7 @@ export default {
     },
     displayNote(subject){
     this.selectSubject = subject;
+    this.activeSubject = subject;
     },
     displayClient(client){
       this.name = client.name;
@@ -66,6 +69,7 @@ export default {
       this.status = client.status;
       this.dependants = client.dependants;
       this.pictureURL = client.pictureURL;
+      this.activeClient = client.name;
     }
   },
 
@@ -78,6 +82,8 @@ export default {
         this.dependants = this.clients[0].dependants;
         this.birthday = this.clients[0].dob;
         this.pictureURL = this.clients[0].pictureURL;
+        this.activeClient = this.clients[0].name;
+        this.activeSubject = this.clients[0].notes[0];
       }
   }
 }

@@ -52,7 +52,7 @@ export default {
   methods:{
   async fetchclients(){
       // const res = await fetch('http://localhost:5555/clients');
-      const res = await axios.get('https://aamartinez17.github.io/ClientCRM/api/db.json')
+      const res = await axios.get('https://aamartinez17.github.io/ClientCRM/db.json')
       // const data = res.json();
       const data = await res.data.clients;
       console.log(data);
